@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="" />
+    <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClienteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPClient50.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServerThread50.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/resources/bd.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/org/example/Main.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,22 +39,43 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/Programas/Concurrentes/Parcial-Concurrentes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programas\Concurrentes\Final-Balanceador\Balanceador-Java\src\main\java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programas\Concurrentes\Final-Balanceador\Java" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Balanceador" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Balanceador" />
+      <module name="Final-Balanceador" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Balanceador" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -55,7 +85,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1672425914319</updated>
-      <workItem from="1672425916302" duration="2171000" />
+      <workItem from="1672425916302" duration="2174000" />
+      <workItem from="1672620730989" duration="335000" />
+      <workItem from="1672621089458" duration="277000" />
+      <workItem from="1672621381471" duration="889000" />
+      <workItem from="1672628417421" duration="8037000" />
     </task>
     <servers />
   </component>
