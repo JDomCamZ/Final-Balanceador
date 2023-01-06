@@ -22,6 +22,22 @@ public class TCPServer50 {
     public OnMessageReceived getMessageListener(){
         return this.messageListener;
     }
+    public void sendBalancingTCPServer(int balance, ArrayList<Integer> segments,int datalength){
+        for (int i = 0; i < segments.size(); i++) {
+            if (i < segments.size() - 1) {
+                message = "B-" + ((i * balance) + 1) + "-" + (i + 1) * balance;
+                sendclis[segments.get(i)].sendMessage(message);
+                System.out.println("ENVIANDO A SEGMENTO " + (i + 1));
+            }
+            if (i == segments.size() - 1) {
+                message = "B-" + ((i * balance) + 1) + "-" + datalength;
+                sendclis[segments.get(i)].sendMessage(message);
+                System.out.println("ENVIANDO A SEGMENTO " + (i + 1));
+            }
+        }
+
+
+    }
     public void sendConsumingMessageTCPServer(String message, ArrayList<Integer> consumers, int a){
         if(a == -1) {
             for (int i = 0; i < consumers.size(); i++) {
@@ -62,7 +78,7 @@ public class TCPServer50 {
                 Thread t = new Thread(sendclis[nrcli]);
                 t.start();
                 System.out.println("Nuevo conectado:"+ nrcli+" jugadores conectados");
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(1);
                 sendProducerConsuming(nrcli);
             }
             

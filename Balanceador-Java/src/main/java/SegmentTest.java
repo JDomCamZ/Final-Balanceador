@@ -1,11 +1,11 @@
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class ClienteTest {
+public class SegmentTest {
     TCPClient50 mTcpClient;
     Scanner sc;
     public static void main(String[] args)  {
-        ClienteTest objcli = new ClienteTest();
+        SegmentTest objcli = new SegmentTest();
         objcli.iniciar();
     }
 
@@ -15,7 +15,7 @@ public class ClienteTest {
 
                     @Override
                     public void run() {
-                        mTcpClient = new TCPClient50("192.168.0.10",
+                        mTcpClient = new TCPClient50("192.168.0.12",
                                 new TCPClient50.OnMessageReceived(){
                                     @Override
                                     public void messageReceived(String message){
@@ -40,10 +40,10 @@ public class ClienteTest {
 
     }
     void ClienteRecibe(String llego){
-        if (llego.equals("Is Producer or Consuming?")) {
+        if (llego.equals("Is Segment or Client?")) {
             System.out.println("CLINTE50 El mensaje::" + llego);
-            ClienteEnvia("Producer");
-            ClienteEnvia("cttlisto");
+            ClienteEnvia("Segment");
+            //ClienteEnvia("cttlisto");
         }
         else{
             System.out.println("CLINTE50 El mensaje::" + llego);
@@ -52,7 +52,7 @@ public class ClienteTest {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            ClienteEnvia("cttlisto");
+            //ClienteEnvia("cttlisto");
         }
 
 

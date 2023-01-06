@@ -43,7 +43,7 @@ public class Balanceador {
         // print the array to check the data
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < 2; j++) {
-                System.out.print(data[i][j] + " ");
+                //System.out.print(data[i][j] + " ");
             }
             System.out.println();
         }
@@ -75,22 +75,34 @@ public class Balanceador {
         System.out.println("Servidor bandera 01");
         while( !salir.equals("s")){
             salir = sc.nextLine();
+            if (salir.equals("balancear")) {
+                 Balanceo();
+            }
             //ServidorEnvia(salir);
         }
         System.out.println("Servidor bandera 02");
     }
+    void Balanceo(){
+        int datalength = data.length;
+        int segmentlength = segment.size();
+        int balance = datalength / segmentlength;
+        mTcpServer.sendBalancingTCPServer(balance, segment, datalength);
+        System.out.println(balance);
+    }
     void ServidorRecibe(String llego) throws InterruptedException {
+        System.out.println("SERVIDOR40 El mensaje:" + llego);
         String[] t =llego.split("tt");
-        System.out.println(data[0][0]);
         if(t[0].equals("c")){
             ProducerRecibe(t[1]);
         }else{
-            if (llego.equals("Producer")) {
-                AddProducer(mTcpServer.IDClient());
+            if (llego.equals("Client")) {
+                AddClient(mTcpServer.IDClient());
+                System.out.println("SERVIDOR40 El mensaje:" + llego);
             }
-            else if (llego.equals("Consumer"))
+            else if (llego.equals("Segment"))
                 AddSegment(mTcpServer.IDClient());
-            else if (!llego.equals("listo") && blockingQueue.remainingCapacity()!=0)
+                System.out.println("SERVIDOR40 El mensaje:" + llego);
+            /*else if (!llego.equals("listo") && blockingQueue.remainingCapacity()!=0)
                 blockingQueue.put(llego);
             if (blockingQueue.remainingCapacity()==0) {
                 String cola = "COLA LLENA ESPERA POR FAVOR";
@@ -104,7 +116,7 @@ public class Balanceador {
                 ready = false;
                 //System.out.println(blockingQueue.remainingCapacity());
                 ServidorEnvia("s");
-            }
+            }*/
 
         }
 
@@ -141,7 +153,7 @@ public class Balanceador {
             mTcpServer.sendConsumingMessageTCPServer(enviaP, client,-1);
         }
     }
-    void AddProducer (int ID) {
+    void AddClient(int ID) {
         client.add(ID);
     }
 
