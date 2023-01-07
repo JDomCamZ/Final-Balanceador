@@ -86,7 +86,7 @@ public class Balanceador {
     }
     void ServidorRecibe(String llego) throws InterruptedException {
         System.out.println("SERVIDOR40 El mensaje:" + llego);
-        String[] t =llego.split("--");
+        String[] t = llego.split("--");
         if(t[0].equals("C")){
             ClienteRecibe(t[1]);
         } else if(t[0].equals("S")){
@@ -104,49 +104,61 @@ public class Balanceador {
         }
     }
     void ClienteRecibe(String llego) throws InterruptedException {
-        String[] t =llego.split("-");
+        String[] t = llego.split("-");
         for (int i = 0; i < segmentlength; i++){
             if (i < segmentlength - 1) {
-                if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= (i + 1) * balance) {
-                    String message = t[1] + "-" + t[2]+ "-" + t[0];
-                    mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                if (t[1].equals("L")) {
+                    if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= (i + 1) * balance) {
+                        String message = t[1] + "-" + t[2]+ "-" + t[0];
+                        mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                    }
+                }
+                if (t[1].equals("A") || t[1].equals("R")) {
+                    String[] s = t[2].split(";");
+                    if ((i * balance) + 1 <= Integer.parseInt(s[0]) && Integer.parseInt(s[0]) <= (i + 1) * balance) {
+                        String message = t[1] + "-" + t[2]+ "-" + t[0];
+                        mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                    }
                 }
             }
             if (i == segmentlength - 1) {
-                if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= datalength) {
-                    String message = t[1] + "-" + t[2]+ "-" + t[0];
-                    mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                if (t[1].equals("L")) {
+                    if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= datalength) {
+                        String message = t[1] + "-" + t[2] + "-" + t[0];
+                        mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                    }
+                }
+                if (t[1].equals("A") || t[1].equals("R")) {
+                    String[] s = t[2].split(";");
+                    if ((i * balance) + 1 <= Integer.parseInt(s[0]) && Integer.parseInt(s[0]) <= datalength) {
+                        String message = t[1] + "-" + t[2] + "-" + t[0];
+                        mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                    }
                 }
             }
         }
     }
     void SegmentRecibe(String llego) throws InterruptedException {
-        if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
-            consumingQueue.put(llego);
-        if (consumingQueue.remainingCapacity()==0) {
-            String cola = "COLA LLENA ESPERA POR FAVOR";
-            System.out.println(cola);
-            //mTcpServer.sendSegmentMessageTCPServer(cola, segment.get(0));
+        String[] t = llego.split("-");
+        if (t[0].equals("L")) {
+            String message = "El saldo de " + t[1] + " es: " + t[2];
+            mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
         }
-        if (llego.equals("listo"))
-            readyOther = true;
-        System.out.println("SERVIDOR40 El mensaje:" + llego);
-        if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
-            readyOther = false;
-            //System.out.println(consumingQueue.remainingCapacity());
-            ConsumingEnvia();
+        if (t[0].equals("A")) {
+            if (t[1].equals("A")){
+                String message01 = "¡Transacción exitosa!\n" + "El nuevo saldo de " + t[2] + " es: " + t[3];
+                String message02 = t[6] + "-R-" + t[4] + ";" + t[5];
+                mTcpServer.sendClientMessageTCPServer(message01, client.get(Integer.parseInt(t[6]) - 1), Integer.parseInt(t[6]));
+                ClienteRecibe(message02);
+            }
+            if (t[1].equals("D")){
+                String message = "¡Transacción errónea!\n" + "El saldo de " + t[2] + " no es suficiente para realizar la transacción.";
+                mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
+            }
         }
-    }
-    void ServidorEnvia() throws InterruptedException {
-        String envia = blockingQueue.take();
-        if (mTcpServer != null) {
-            //mTcpServer.sendConsumingMessageTCPServer(envia, segment,-1);
-        }
-    }
-    void ConsumingEnvia() throws InterruptedException {
-        String enviaP = consumingQueue.take();
-        if (mTcpServer != null) {
-            //mTcpServer.sendConsumingMessageTCPServer(enviaP, client,-1);
+        if (t[0].equals("R")) {
+            String message = "El nuevo saldo de " + t[1] + " es: " + t[2];
+            mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
         }
     }
     void AddClient(int ID) {

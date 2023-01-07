@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Balancing done.">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Receiving messages from client done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,8 +158,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Balanceador" />
         <item itemvalue="Application.SegmentTest" />
+        <item itemvalue="Application.Balanceador" />
         <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
@@ -183,7 +178,7 @@
       <workItem from="1672621381471" duration="889000" />
       <workItem from="1672628417421" duration="13739000" />
       <workItem from="1673023733770" duration="11385000" />
-      <workItem from="1673097404281" duration="6235000" />
+      <workItem from="1673097404281" duration="13410000" />
     </task>
     <task id="LOCAL-00001" summary="Reading csv file">
       <created>1672732901296</created>
@@ -199,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673044936194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Receiving messages from client done.">
+      <created>1673111189569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673111189569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +222,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Reading csv file" />
     <MESSAGE value="Balancing done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Balancing done." />
+    <MESSAGE value="Receiving messages from client done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Receiving messages from client done." />
   </component>
 </project>
