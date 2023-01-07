@@ -17,6 +17,9 @@ public class Balanceador {
     static int[][] data = new int[1000][2];
     boolean ready = false;
     boolean readyOther=false;
+    int datalength;
+    int segmentlength;
+    int balance;
     public static void main(String[] args) throws InterruptedException {
         File file = new File("Balanceador-Java", "src");
         file = new File(file, "main");
@@ -38,14 +41,6 @@ public class Balanceador {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        // print the array to check the data
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < 2; j++) {
-                //System.out.print(data[i][j] + " ");
-            }
-            System.out.println();
         }
 
         Balanceador objser = new Balanceador();
@@ -83,9 +78,9 @@ public class Balanceador {
         System.out.println("Servidor bandera 02");
     }
     void Balanceo(){
-        int datalength = data.length;
-        int segmentlength = segment.size();
-        int balance = datalength / segmentlength;
+        datalength = data.length;
+        segmentlength = segment.size();
+        balance = datalength / segmentlength;
         mTcpServer.sendBalancingTCPServer(balance, segment, datalength);
         System.out.println(balance);
     }
@@ -107,25 +102,22 @@ public class Balanceador {
                 AddSegment(mTcpServer.IDClient());
                 System.out.println("SERVIDOR40 El mensaje:" + llego);
         }
-
-
-
     }
     void ClienteRecibe(String llego) throws InterruptedException {
-        if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
-            consumingQueue.put(llego);
-        if (consumingQueue.remainingCapacity()==0) {
-            String cola = "COLA LLENA ESPERA POR FAVOR";
-            System.out.println(cola);
-            mTcpServer.sendProducerMessageTCPServer(cola, segment.get(0));
-        }
-        if (llego.equals("listo"))
-            readyOther = true;
-        System.out.println("SERVIDOR40 El mensaje:" + llego);
-        if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
-            readyOther = false;
-            //System.out.println(consumingQueue.remainingCapacity());
-            ConsumingEnvia();
+        String[] t =llego.split("-");
+        for (int i = 0; i < segmentlength; i++){
+            if (i < segmentlength - 1) {
+                if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= (i + 1) * balance) {
+                    String message = t[1] + "-" + t[2]+ "-" + t[0];
+                    mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                }
+            }
+            if (i == segmentlength - 1) {
+                if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= datalength) {
+                    String message = t[1] + "-" + t[2]+ "-" + t[0];
+                    mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
+                }
+            }
         }
     }
     void SegmentRecibe(String llego) throws InterruptedException {
@@ -134,24 +126,7 @@ public class Balanceador {
         if (consumingQueue.remainingCapacity()==0) {
             String cola = "COLA LLENA ESPERA POR FAVOR";
             System.out.println(cola);
-            mTcpServer.sendProducerMessageTCPServer(cola, segment.get(0));
-        }
-        if (llego.equals("listo"))
-            readyOther = true;
-        System.out.println("SERVIDOR40 El mensaje:" + llego);
-        if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
-            readyOther = false;
-            //System.out.println(consumingQueue.remainingCapacity());
-            ConsumingEnvia();
-        }
-    }
-    void ProducerRecibe(String llego) throws InterruptedException {
-       if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
-           consumingQueue.put(llego);
-        if (consumingQueue.remainingCapacity()==0) {
-            String cola = "COLA LLENA ESPERA POR FAVOR";
-            System.out.println(cola);
-            mTcpServer.sendProducerMessageTCPServer(cola, segment.get(0));
+            //mTcpServer.sendSegmentMessageTCPServer(cola, segment.get(0));
         }
         if (llego.equals("listo"))
             readyOther = true;

@@ -5,7 +5,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class TCPServer50 {
+public class
+TCPServer50 {
     private String message;
     int nrcli = 0;
     public static final int SERVERPORT = 4444;
@@ -45,9 +46,9 @@ public class TCPServer50 {
         System.out.println("ENVIANDO A CONEXION " + (index));
     }
 
-    public void sendProducerMessageTCPServer(String message, int indexProducer){
-        sendclis[indexProducer].sendMessage(message);
-        System.out.println("ENVIANDO A PRODUCER " + (indexProducer));
+    public void sendSegmentMessageTCPServer(String message, int indexSegment, int NSegment){
+        sendclis[indexSegment].sendMessage(message);
+        System.out.println("ENVIANDO A SEGMENTO " + (NSegment));
     }
 
     public int IDClient(){

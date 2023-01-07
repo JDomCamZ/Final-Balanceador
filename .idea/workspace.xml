@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Balancing done.">
-      <change afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,25 +39,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programas/Concurrentes/Parcial-Concurrentes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Programas/Concurrentes/Final-Balanceador",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programas\Concurrentes\Final-Balanceador\Balanceador-Java\src\main\java" />
@@ -160,8 +163,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SegmentTest" />
         <item itemvalue="Application.Balanceador" />
+        <item itemvalue="Application.SegmentTest" />
         <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
@@ -180,6 +183,7 @@
       <workItem from="1672621381471" duration="889000" />
       <workItem from="1672628417421" duration="13739000" />
       <workItem from="1673023733770" duration="11385000" />
+      <workItem from="1673097404281" duration="6235000" />
     </task>
     <task id="LOCAL-00001" summary="Reading csv file">
       <created>1672732901296</created>
@@ -217,17 +221,5 @@
     <MESSAGE value="Reading csv file" />
     <MESSAGE value="Balancing done." />
     <option name="LAST_COMMIT_MESSAGE" value="Balancing done." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java</url>
-          <line>9</line>
-          <properties field="nrcli" class="TCPServer50" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
