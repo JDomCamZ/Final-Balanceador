@@ -91,39 +91,60 @@ public class Balanceador {
     }
     void ServidorRecibe(String llego) throws InterruptedException {
         System.out.println("SERVIDOR40 El mensaje:" + llego);
-        String[] t =llego.split("tt");
-        if(t[0].equals("c")){
-            ProducerRecibe(t[1]);
-        }else{
+        String[] t =llego.split("--");
+        if(t[0].equals("C")){
+            ClienteRecibe(t[1]);
+        } else if(t[0].equals("S")){
+            SegmentRecibe(t[1]);
+        } else {
             if (llego.equals("Client")) {
                 AddClient(mTcpServer.IDClient());
+                String mess = "Cliente " + client.size();
+                mTcpServer.sendClientMessageTCPServer(mess, client.get(client.size()-1), client.size());
                 System.out.println("SERVIDOR40 El mensaje:" + llego);
             }
             else if (llego.equals("Segment"))
                 AddSegment(mTcpServer.IDClient());
                 System.out.println("SERVIDOR40 El mensaje:" + llego);
-            /*else if (!llego.equals("listo") && blockingQueue.remainingCapacity()!=0)
-                blockingQueue.put(llego);
-            if (blockingQueue.remainingCapacity()==0) {
-                String cola = "COLA LLENA ESPERA POR FAVOR";
-                System.out.println(cola);
-                mTcpServer.sendProducerMessageTCPServer(cola, client.get(0));
-            }
-            if (llego.equals("listo"))
-                ready = true;
-            System.out.println("SERVIDOR40 El mensaje:" + llego);
-            if ((ready==true && segment.size()>0 && client.size()>0) && !blockingQueue.isEmpty()) {
-                ready = false;
-                //System.out.println(blockingQueue.remainingCapacity());
-                ServidorEnvia("s");
-            }*/
-
         }
 
 
 
     }
-
+    void ClienteRecibe(String llego) throws InterruptedException {
+        if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
+            consumingQueue.put(llego);
+        if (consumingQueue.remainingCapacity()==0) {
+            String cola = "COLA LLENA ESPERA POR FAVOR";
+            System.out.println(cola);
+            mTcpServer.sendProducerMessageTCPServer(cola, segment.get(0));
+        }
+        if (llego.equals("listo"))
+            readyOther = true;
+        System.out.println("SERVIDOR40 El mensaje:" + llego);
+        if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
+            readyOther = false;
+            //System.out.println(consumingQueue.remainingCapacity());
+            ConsumingEnvia();
+        }
+    }
+    void SegmentRecibe(String llego) throws InterruptedException {
+        if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
+            consumingQueue.put(llego);
+        if (consumingQueue.remainingCapacity()==0) {
+            String cola = "COLA LLENA ESPERA POR FAVOR";
+            System.out.println(cola);
+            mTcpServer.sendProducerMessageTCPServer(cola, segment.get(0));
+        }
+        if (llego.equals("listo"))
+            readyOther = true;
+        System.out.println("SERVIDOR40 El mensaje:" + llego);
+        if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
+            readyOther = false;
+            //System.out.println(consumingQueue.remainingCapacity());
+            ConsumingEnvia();
+        }
+    }
     void ProducerRecibe(String llego) throws InterruptedException {
        if (!llego.equals("listo") && consumingQueue.remainingCapacity()!=0)
            consumingQueue.put(llego);
@@ -138,19 +159,19 @@ public class Balanceador {
         if ((readyOther==true && segment.size()>0 && client.size()>0) && !consumingQueue.isEmpty()) {
             readyOther = false;
             //System.out.println(consumingQueue.remainingCapacity());
-            ConsumingEnvia("s");
+            ConsumingEnvia();
         }
     }
-    void ServidorEnvia(String sus) throws InterruptedException {
+    void ServidorEnvia() throws InterruptedException {
         String envia = blockingQueue.take();
         if (mTcpServer != null) {
-            mTcpServer.sendConsumingMessageTCPServer(envia, segment,-1);
+            //mTcpServer.sendConsumingMessageTCPServer(envia, segment,-1);
         }
     }
-    void ConsumingEnvia(String sus) throws InterruptedException {
+    void ConsumingEnvia() throws InterruptedException {
         String enviaP = consumingQueue.take();
         if (mTcpServer != null) {
-            mTcpServer.sendConsumingMessageTCPServer(enviaP, client,-1);
+            //mTcpServer.sendConsumingMessageTCPServer(enviaP, client,-1);
         }
     }
     void AddClient(int ID) {

@@ -35,23 +35,14 @@ public class TCPServer50 {
                 System.out.println("ENVIANDO A SEGMENTO " + (i + 1));
             }
         }
-
-
     }
-    public void sendConsumingMessageTCPServer(String message, ArrayList<Integer> consumers, int a){
-        if(a == -1) {
-            for (int i = 0; i < consumers.size(); i++) {
-                sendclis[consumers.get(i)].sendMessage(message);
-                System.out.println("ENVIANDO A CONSUMING " + (i + 1));
-            }
-        }else{
-            sendclis[a].sendMessage(message);
-            System.out.println("ENVIANDO A CONSUMING " + (a + 1));
-        }
+    public void sendClientMessageTCPServer(String message, int IDClient, int NClient){
+        sendclis[IDClient].sendMessage(message);
+        System.out.println("ENVIANDO A CLIENTE " + (NClient));
     }
     public void sendProducerConsuming(int index) {
         sendclis[index].sendMessage("Is Segment or Client?");
-        System.out.println("ENVIANDO A CLIENTE " + (index));
+        System.out.println("ENVIANDO A CONEXION " + (index));
     }
 
     public void sendProducerMessageTCPServer(String message, int indexProducer){
