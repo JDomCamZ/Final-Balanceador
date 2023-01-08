@@ -23,6 +23,7 @@ TCPServer50 {
     public OnMessageReceived getMessageListener(){
         return this.messageListener;
     }
+    //Enviar mensaje de balanceo a todos los segmentos, repartiendo equitativamente
     public void sendBalancingTCPServer(int balance, ArrayList<Integer> segments,int datalength){
         for (int i = 0; i < segments.size(); i++) {
             if (i < segments.size() - 1) {
@@ -37,15 +38,17 @@ TCPServer50 {
             }
         }
     }
+    //Enviar mensaje a cliente especifico
     public void sendClientMessageTCPServer(String message, int IDClient, int NClient){
         sendclis[IDClient].sendMessage(message);
         System.out.println("ENVIANDO A CLIENTE " + (NClient));
     }
+    //Mensaje de consulta si es segmento o cliente
     public void sendProducerConsuming(int index) {
         sendclis[index].sendMessage("Is Segment or Client?");
         System.out.println("ENVIANDO A CONEXION " + (index));
     }
-
+    //Enviar mensaje a segmento especifico
     public void sendSegmentMessageTCPServer(String message, int indexSegment, int NSegment){
         sendclis[indexSegment].sendMessage(message);
         System.out.println("ENVIANDO A SEGMENTO " + (NSegment));

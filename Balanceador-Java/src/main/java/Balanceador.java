@@ -10,17 +10,14 @@ import java.io.IOException;
 public class Balanceador {
     TCPServer50 mTcpServer;
     Scanner sc;
-    BlockingQueue<String> blockingQueue = new LinkedBlockingDeque<>(5);
-    BlockingQueue<String> consumingQueue = new LinkedBlockingDeque<>(5);
     ArrayList<Integer> client = new ArrayList<Integer>();
     ArrayList<Integer> segment = new ArrayList<Integer>();
     static int[][] data = new int[1000][2];
-    boolean ready = false;
-    boolean readyOther=false;
     int datalength;
     int segmentlength;
     int balance;
     public static void main(String[] args) throws InterruptedException {
+        //Leer datos de BBDD
         File file = new File("Balanceador-Java", "src");
         file = new File(file, "main");
         file = new File(file, "resources");
@@ -77,6 +74,7 @@ public class Balanceador {
         }
         System.out.println("Servidor bandera 02");
     }
+    //Metodo para balancear datos
     void Balanceo(){
         datalength = data.length;
         segmentlength = segment.size();
@@ -84,31 +82,40 @@ public class Balanceador {
         mTcpServer.sendBalancingTCPServer(balance, segment, datalength);
         System.out.println(balance);
     }
+    //Recibir mensajes general
     void ServidorRecibe(String llego) throws InterruptedException {
         System.out.println("SERVIDOR40 El mensaje:" + llego);
         String[] t = llego.split("--");
+        //C-- Cliente S-- Segmento
         if(t[0].equals("C")){
             ClienteRecibe(t[1]);
-        } else if(t[0].equals("S")){
+        }
+        //S--Operacion-*****-IDCliente
+        else if(t[0].equals("S")){
             SegmentRecibe(t[1]);
         } else {
+            //Caso se conecta cliente enviar mensaje de identificacion de cliente
             if (llego.equals("Client")) {
                 AddClient(mTcpServer.IDClient());
                 String mess = "Cliente " + client.size();
                 mTcpServer.sendClientMessageTCPServer(mess, client.get(client.size()-1), client.size());
                 System.out.println("SERVIDOR40 El mensaje:" + llego);
             }
+            //Caso se conecta segmento se añade a la lista
             else if (llego.equals("Segment"))
                 AddSegment(mTcpServer.IDClient());
                 System.out.println("SERVIDOR40 El mensaje:" + llego);
         }
     }
     void ClienteRecibe(String llego) throws InterruptedException {
+        //01-L-123 | ID Cliente - Operacion - ID a leer
+        //02-A-42;250;20.30 | ID a reducir transaccion ; ID a aumentar transaccion ; monto de transaccion
         String[] t = llego.split("-");
         for (int i = 0; i < segmentlength; i++){
             if (i < segmentlength - 1) {
                 if (t[1].equals("L")) {
                     if ((i * balance) + 1 <= Integer.parseInt(t[2]) && Integer.parseInt(t[2]) <= (i + 1) * balance) {
+                        //Se envia al Segmento L-123-01 | Operacion - ID BBDD - ID Cliente
                         String message = t[1] + "-" + t[2]+ "-" + t[0];
                         mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
                     }
@@ -116,6 +123,8 @@ public class Balanceador {
                 if (t[1].equals("A") || t[1].equals("R")) {
                     String[] s = t[2].split(";");
                     if ((i * balance) + 1 <= Integer.parseInt(s[0]) && Integer.parseInt(s[0]) <= (i + 1) * balance) {
+                        //Se envia al Segmento A-22;45;60.30-02 | ID BBDD a decrecer ; ID BBDD a aumentar ; monto transaccion
+                        //Se envia al Segmento R-45;60.30-02 | ID BBDD a aumentar ; monto transaccion
                         String message = t[1] + "-" + t[2]+ "-" + t[0];
                         mTcpServer.sendSegmentMessageTCPServer(message, segment.get(i), i + 1);
                     }
@@ -140,22 +149,26 @@ public class Balanceador {
     }
     void SegmentRecibe(String llego) throws InterruptedException {
         String[] t = llego.split("-");
+        //Segmento envia L-672-452.32-01 | Operacion - ID BBDD - Monto de ID - ID Cliente
         if (t[0].equals("L")) {
             String message = "El saldo de " + t[1] + " es: " + t[2];
             mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
         }
         if (t[0].equals("A")) {
+            //Segmento envia A-A-420-470.30-730-30.20-02 | Operacion - Exito/Fracaso - ID BBDD actualizado - Monto nuevo - ID a actualizar - Monto transaccion- ID Cliente
             if (t[1].equals("A")){
                 String message01 = "¡Transacción exitosa!\n" + "El nuevo saldo de " + t[2] + " es: " + t[3];
                 String message02 = t[6] + "-R-" + t[4] + ";" + t[5];
                 mTcpServer.sendClientMessageTCPServer(message01, client.get(Integer.parseInt(t[6]) - 1), Integer.parseInt(t[6]));
                 ClienteRecibe(message02);
             }
+            // Segmento envia A-D-420-02 | Operacion - Exito/Fracaso - ID BBDD - ID Cliente
             if (t[1].equals("D")){
                 String message = "¡Transacción errónea!\n" + "El saldo de " + t[2] + " no es suficiente para realizar la transacción.";
                 mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
             }
         }
+        //Segmento envia R-730-80.40-02 | Operacion - ID BBDD actualizado - Monto actualizado - ID Cliente
         if (t[0].equals("R")) {
             String message = "El nuevo saldo de " + t[1] + " es: " + t[2];
             mTcpServer.sendClientMessageTCPServer(message, client.get(Integer.parseInt(t[3]) - 1), Integer.parseInt(t[3]));
