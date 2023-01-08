@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Balancing done.">
-      <change afterPath="$PROJECT_DIR$/Cliente-Python/Cuenta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cliente-Python/modelo cliente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/SegmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/TCPServer50.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/clever/Desktop/CLASES/2022-2/Concurrente/Final-Balanceador/Final-Balanceador/Balanceador-Java",
+    "last_opened_file_path": "C:/Programas/Concurrentes/Final-Balanceador",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -182,7 +184,6 @@
       <workItem from="1672628417421" duration="13739000" />
       <workItem from="1673023733770" duration="11385000" />
       <workItem from="1673097404281" duration="6235000" />
-      <workItem from="1673139594549" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="Reading csv file">
       <created>1672732901296</created>
