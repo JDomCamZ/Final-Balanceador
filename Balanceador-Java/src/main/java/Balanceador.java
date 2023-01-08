@@ -17,7 +17,7 @@ public class Balanceador {
     int segmentlength;
     int balance;
     public static void main(String[] args) throws InterruptedException {
-        //Leer datos de BBDD
+        //Leer datos de BBDD en .csv
         File file = new File("Balanceador-Java", "src");
         file = new File(file, "main");
         file = new File(file, "resources");

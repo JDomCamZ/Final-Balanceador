@@ -73,6 +73,7 @@ TCPServer50 {
                 Thread t = new Thread(sendclis[nrcli]);
                 t.start();
                 System.out.println("Nuevo conectado:"+ nrcli+" jugadores conectados");
+                //Sleep de verificacion
                 TimeUnit.SECONDS.sleep(1);
                 sendProducerConsuming(nrcli);
             }
