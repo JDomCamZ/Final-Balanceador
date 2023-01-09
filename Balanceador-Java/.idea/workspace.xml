@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Cliente-Python/Cuenta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Cliente-Python/cliente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cliente-Python/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cliente-Python/cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente-Python/cliente.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +37,28 @@
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.Balanceador">
+    <configuration name="Balanceador" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Balanceador" />
+      <module name="Balanceador-Java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientTest" />
+      <module name="Balanceador-Java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Balanceador" />
+        <item itemvalue="Application.ClientTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +69,7 @@
       <updated>1672425914319</updated>
       <workItem from="1672425916302" duration="1000" />
       <workItem from="1673134504178" duration="422000" />
-      <workItem from="1673139605797" duration="1357000" />
+      <workItem from="1673139605797" duration="4719000" />
     </task>
     <servers />
   </component>

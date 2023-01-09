@@ -15,7 +15,7 @@ public class ClientTest {
 
                     @Override
                     public void run() {
-                        mTcpClient = new TCPClient50("192.168.0.30",
+                        mTcpClient = new TCPClient50("192.168.1.37",
                                 new TCPClient50.OnMessageReceived(){
                                     @Override
                                     public void messageReceived(String message){
