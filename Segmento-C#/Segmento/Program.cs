@@ -11,17 +11,25 @@ namespace Segmento
     class Program
     {
         static int[] limite = { 1, 10 };
-        Queue<string> pedidos= new Queue<string>();
+        static Queue<string> pedidos= new Queue<string>();
         static void Main(string[] args)
-        {   //datos necesario
+
+        {   
+            
+            //datos necesario
             List<string[]> bd = new List<string[]>();
             //para iniciar la conexión
             IPHostEntry host = Dns.GetHostEntry("localhost");
-            IPAddress ipAddress = host.AddressList[0];
+            IPAddress ipAddress = host.AddressList[0];//192.168.0.18
             IPEndPoint remoteEP = new IPEndPoint(ipAddress, 4444);
 
+            //replica
+            IPAddress ipReplica = IPAddress.Parse("192.168.0.18");//192.168.0.18
+            IPEndPoint remoteReplica = new IPEndPoint(ipReplica, 5000);
+            Socket senderReplica = new Socket(ipReplica.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            senderReplica.Connect(remoteReplica);
             
-            
+
             LeerCSV(bd);
             try
             {
@@ -29,34 +37,24 @@ namespace Segmento
                 Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 // Conecta el socket al punto de conexión remoto.
                 sender.Connect(remoteEP);
+                senderReplica.Connect(remoteReplica);
+
                 Console.WriteLine("Socket conectado a {0}", sender.RemoteEndPoint.ToString());
                 
-                //Thread t = new Thread(new ParameterizedThreadStart (Recivir) );
-                //t.Start(sender);
+
                 Thread threadSend = new Thread(new ParameterizedThreadStart(Enviar));
                 threadSend.Start(sender);
 
-                /*string comando = "";
-                while (comando != "exit")
-                {
-                    Console.WriteLine("ingrese una cadena");
-
-                    //enviando mensaje
-                    comando = Console.ReadLine();
-                    byte[] msg = Encoding.ASCII.GetBytes(comando + "<EOF>");//como tiene el <EOF> entonces el servidor terminra´
-                    int byteSent = sender.Send(msg);
-
-                }*/
                 Console.WriteLine("Reciviendo mensaje");
 
-                // Aquí puedes poner el código que quieras ejecutar en el hilo
+                // Aquí recive los mensajes
                 while (true)
                 {
                     byte[] bytes = new byte[1024];
                     int byteRec = sender.Receive(bytes);
                     string texto = Encoding.ASCII.GetString(bytes, 0, byteRec);
                     Console.WriteLine("Servidor:" + texto);
-                    Operaciones(texto,bd,sender);
+                    Operaciones(texto,bd,sender,senderReplica);
                 }
 
                 sender.Shutdown(SocketShutdown.Both);
@@ -100,12 +98,16 @@ namespace Segmento
         static void EnviarMensaje(Socket sender,string mensaje)
         {
             Console.WriteLine("Enviando mensajes");
-            Console.WriteLine("Enviando");
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje + "<EOF>");//como tiene el <EOF> entonces el servidor terminra´
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje + "<EOF>");
             int byteSent = sender.Send(msg);
         }
-
-        static void Operaciones(string texto, List<string[]>datos,Socket sender) {
+        static void EnviarReplica(Socket replica, string mensaje)
+        {
+            Console.WriteLine("Enviando replica");
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            int byteSent = replica.Send(msg);
+        }
+        static void Operaciones(string texto, List<string[]>datos,Socket sender,Socket repli) {
                 string[] partesOperación = texto.Split("-");
                 if (partesOperación.Length > 1)
                 {
@@ -115,6 +117,7 @@ namespace Segmento
                         int max = int.Parse(partesOperación[1]);
                         limite[0] = min;
                         limite[1] = max;
+                        EnviarMensaje(repli, texto);
                     }
                     if (partesOperación[0] == "L"){
                             string dinero = "";
@@ -169,6 +172,7 @@ namespace Segmento
                             Console.WriteLine(resultado);
                             EnviarMensaje(sender, resultado);
                             //enviar a replica
+                            EnviarMensaje(repli, texto);
                         }
                           }
                         
