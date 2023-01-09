@@ -1,0 +1,14 @@
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.exe
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.deps.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.runtimeconfig.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.runtimeconfig.dev.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.dll
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.pdb
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.csproj.AssemblyReference.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.GeneratedMSBuildEditorConfig.editorconfig
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.AssemblyInfoInputs.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.AssemblyInfo.cs
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.csproj.CoreCompileInputs.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.dll
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.pdb
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.genruntimeconfig.cache

@@ -1,0 +1,14 @@
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.exe
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.deps.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.dev.json
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.dll
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\bin\Debug\netcoreapp3.1\Cliente.pdb
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.AssemblyReference.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.GeneratedMSBuildEditorConfig.editorconfig
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfoInputs.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfo.cs
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.CoreCompileInputs.cache
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.dll
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.pdb
+E:\ReposGitHub\Final-Balanceador\Segmento-C#\Cliente\obj\Debug\netcoreapp3.1\Cliente.genruntimeconfig.cache
