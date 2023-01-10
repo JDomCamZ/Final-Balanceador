@@ -356,6 +356,7 @@ namespace Segmento
 
                         // Escribe la línea en el archivo CSV
                         writer.WriteLine(line);
+                        count++;
                     }
                 }
             }
