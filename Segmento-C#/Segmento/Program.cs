@@ -307,9 +307,7 @@ namespace Segmento
             // Abre el archivo CSV
             using (StreamReader reader = new StreamReader("bd.csv"))
             {
- 
-
-                // Lee el resto del archivo
+                // Lee el resto del archivoddddd
                 int cont = 0;
                 while (!reader.EndOfStream)
                 {
