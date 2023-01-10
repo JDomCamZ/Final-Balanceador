@@ -12,29 +12,34 @@ public class Balanceador {
     Scanner sc;
     ArrayList<Integer> client = new ArrayList<Integer>();
     ArrayList<Integer> segment = new ArrayList<Integer>();
-    static int[][] data = new int[1000][2];
+    static int[][] data = new int[10000][2];
     int datalength;
     int segmentlength;
     int balance;
     public static void main(String[] args) throws InterruptedException {
         //Leer datos de BBDD en .csv
-        File file = new File("Balanceador-Java", "src");
-        file = new File(file, "main");
-        file = new File(file, "resources");
+        File file = new File("Segmento-C#", "Segmento");
+        file = new File(file, "bin");
+        file = new File(file, "Debug");
+        file = new File(file, "netcoreapp3.1");
         file = new File(file, "bd.csv");
         String filePath = file.getAbsolutePath();
         System.out.println(filePath);
         String delimiter = ";";
         int row = 0;
+        int cont = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] fields = line.split(delimiter);
-                for (int col = 0; col < 2; col++) {
-                    data[row][col] = Integer.parseInt(fields[col]);
+                if (cont > 0) {
+                    String[] fields = line.split(delimiter);
+                    for (int col = 0; col < 2; col++) {
+                        data[row][col] = Integer.parseInt(fields[col]);
+                    }
+                    row++;
                 }
-                row++;
+                cont++;
             }
         } catch (IOException e) {
             e.printStackTrace();

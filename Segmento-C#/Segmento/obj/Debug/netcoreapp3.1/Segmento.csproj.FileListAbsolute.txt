@@ -12,3 +12,17 @@ E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Se
 E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.dll
 E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.pdb
 E:\ReposGitHub\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.genruntimeconfig.cache
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.exe
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.deps.json
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.runtimeconfig.json
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.runtimeconfig.dev.json
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.dll
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\bin\Debug\netcoreapp3.1\Segmento.pdb
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.csproj.AssemblyReference.cache
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.AssemblyInfoInputs.cache
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.AssemblyInfo.cs
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.csproj.CoreCompileInputs.cache
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.dll
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.pdb
+D:\Programas\Concurrentes\Final-Balanceador\Segmento-C#\Segmento\obj\Debug\netcoreapp3.1\Segmento.genruntimeconfig.cache
