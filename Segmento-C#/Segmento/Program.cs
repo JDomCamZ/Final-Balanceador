@@ -55,7 +55,14 @@ namespace Segmento
                     string texto = Encoding.ASCII.GetString(bytes, 0, byteRec);
                     Console.WriteLine("Servidor:" + texto);
                     //Operaciones(texto,bd,sender,senderReplica);
-                    Op(texto, bd, sender);
+                    if (texto == "Is Segment or Client?")
+                    {
+                        EnviarMensaje(sender, "Segment");
+                    }
+                    else {
+                        Op(texto, bd, sender);
+                    }
+                    
                 }
 
                 sender.Shutdown(SocketShutdown.Both);
@@ -130,7 +137,7 @@ namespace Segmento
                             {
                                 if (dato[0] == busca) dinero = dato[1];
                             }
-                            resultado = "L-" + busca + "-" + dinero + partesOperación[2];
+                            resultado = "S--L-" + busca + "-" + dinero + partesOperación[2];
                             EnviarMensaje(sender, resultado);
                     }else if (partesOperación[0] == "A"){
                             string[] partesActualizar = partesOperación[2].Split(";");
@@ -145,13 +152,13 @@ namespace Segmento
                                     float resultadoDinero = (dineroActual - monto);
                                     if (resultadoDinero < 1000)
                                     {
-                                        string resultado = "A-D-" + ordenante + "-"+ partesOperación[2];
+                                        string resultado = "S--A-D-" + ordenante + "-"+ partesOperación[2];
                                         Console.WriteLine(resultado);
                                         EnviarMensaje(sender, resultado);
                                     }
                                     else
                                     {
-                                        string resultado = "A-A-" + ordenante + "-" +resultadoDinero.ToString() + "-" +beneficiario+"-"+partesActualizar[2] + "-" + partesOperación[2];
+                                        string resultado = "S--A-A-" + ordenante + "-" +resultadoDinero.ToString() + "-" +beneficiario+"-"+partesActualizar[2] + "-" + partesOperación[2];
                                         Console.WriteLine(resultado);
                                         EnviarMensaje(sender, resultado);
                                     }
@@ -171,7 +178,7 @@ namespace Segmento
                             dato[1] = dineroActualizado.ToString();
                             Escribir(dato[0] + ";" + dato[1], int.Parse(dato[0]));
 
-                            string resultado = "R-" + beneficiario + "-"+(dineroActualizado.ToString())+"-" + partesOperación[2];
+                            string resultado = "S--R-" + beneficiario + "-"+(dineroActualizado.ToString())+"-" + partesOperación[2];
                             Console.WriteLine(resultado);
                             EnviarMensaje(sender, resultado);
                             //enviar a replica
@@ -210,7 +217,7 @@ namespace Segmento
                     {
                         if (dato[0] == busca) dinero = dato[1];
                     }
-                    resultado = "L-" + busca + "-" + dinero + partesOperación[2];
+                    resultado = "S--L-" + busca + "-" + dinero + partesOperación[2];
                     EnviarMensaje(sender, resultado);
                 }
                 else if (partesOperación[0] == "A")
@@ -227,13 +234,13 @@ namespace Segmento
                             float resultadoDinero = (dineroActual - monto);
                             if (resultadoDinero < 1000)
                             {
-                                string resultado = "A-D-" + ordenante + "-" + partesOperación[2];
+                                string resultado = "S--A-D-" + ordenante + "-" + partesOperación[2];
                                 Console.WriteLine(resultado);
                                 EnviarMensaje(sender, resultado);
                             }
                             else
                             {
-                                string resultado = "A-A-" + ordenante + "-" + resultadoDinero.ToString() + "-" + beneficiario + "-" + partesActualizar[2] + "-" + partesOperación[2];
+                                string resultado = "S--A-A-" + ordenante + "-" + resultadoDinero.ToString() + "-" + beneficiario + "-" + partesActualizar[2] + "-" + partesOperación[2];
                                 Console.WriteLine(resultado);
                                 EnviarMensaje(sender, resultado);
                             }
@@ -257,7 +264,7 @@ namespace Segmento
                             dato[1] = dineroActualizado.ToString();
                             Escribir(dato[0] + ";" + dato[1], int.Parse(dato[0]));
 
-                            string resultado = "R-" + beneficiario + "-" + (dineroActualizado.ToString()) + "-" + partesOperación[2];
+                            string resultado = "S--R-" + beneficiario + "-" + (dineroActualizado.ToString()) + "-" + partesOperación[2];
                             Console.WriteLine(resultado);
                             EnviarMensaje(sender, resultado);
                             //enviar a replica
