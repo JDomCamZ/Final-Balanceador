@@ -333,31 +333,43 @@ namespace Segmento
         static void Escribir(string s,int fila) {
 
             // Abre el archivo CSV en modo lectura
+            string valoresFila = s;
+
+            // Lista temporal para almacenar las líneas del archivo CSV
+            var lineas = new List<string>();
+
+            // Abre el archivo CSV en modo lectura
             using (var reader = new StreamReader("bd.csv"))
             {
-                // Abre el archivo CSV en modo escritura
-                using (var writer = new StreamWriter("bd.csv"))
+                // Recorre cada línea del archivo CSV
+                while (true)
                 {
-                    int count = 0;
-                    // Recorre cada línea del archivo CSV
-                    while(true)
+                    string linea = reader.ReadLine();
+
+                    if (linea == null)
                     {
-                        string line = reader.ReadLine();
-
-                        // Si es la fila que deseas sobrescribir, escribe los valores modificados
-                        if (count == fila)
-                        {
-                            line = s;
-                            writer.WriteLine(line);
-                            writer.Close();
-                            reader.Close();
-                            break;
-                        }
-
-                        // Escribe la línea en el archivo CSV
-                        writer.WriteLine(line);
-                        count++;
+                        // Fin del archivo CSV
+                        break;
                     }
+
+                    // Si es la fila que deseas sobrescribir, escribe los valores modificados
+                    if (lineas.Count == fila)
+                    {
+                        linea = valoresFila;
+                    }
+
+                    // Añade la línea a la lista temporal
+                    lineas.Add(linea);
+                }
+            }
+
+            // Abre el archivo CSV en modo escritura
+            using (var writer = new StreamWriter("bd.csv"))
+            {
+                // Recorre la lista temporal y escribe cada línea en el archivo CSV
+                foreach (string linea in lineas)
+                {
+                    writer.WriteLine(linea);
                 }
             }
 
