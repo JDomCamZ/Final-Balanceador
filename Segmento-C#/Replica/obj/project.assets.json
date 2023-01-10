@@ -8,19 +8,24 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\juans\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ReposGitHub\\Final-Balanceador\\Segmento-C#\\Replica\\Replica.csproj",
+      "projectUniqueName": "D:\\Programas\\Concurrentes\\Final-Balanceador\\Segmento-C#\\Replica\\Replica.csproj",
       "projectName": "Replica",
-      "projectPath": "E:\\ReposGitHub\\Final-Balanceador\\Segmento-C#\\Replica\\Replica.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\ReposGitHub\\Final-Balanceador\\Segmento-C#\\Replica\\obj\\",
+      "projectPath": "D:\\Programas\\Concurrentes\\Final-Balanceador\\Segmento-C#\\Replica\\Replica.csproj",
+      "packagesPath": "C:\\Users\\juans\\.nuget\\packages\\",
+      "outputPath": "D:\\Programas\\Concurrentes\\Final-Balanceador\\Segmento-C#\\Replica\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }
