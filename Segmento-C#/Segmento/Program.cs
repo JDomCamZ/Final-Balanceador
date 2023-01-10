@@ -55,12 +55,15 @@ namespace Segmento
                     string texto = Encoding.ASCII.GetString(bytes, 0, byteRec);
                     Console.WriteLine("Servidor:" + texto);
                     //Operaciones(texto,bd,sender,senderReplica);
-                    if (texto == "Is Segment or Client?")
+                    string visible = texto.Replace("\r\n","");
+                    if (visible == "Is Segment or Client?")
                     {
+                        
                         EnviarMensaje(sender, "Segment");
+
                     }
                     else {
-                        Op(texto, bd, sender);
+                        Op(visible, bd, sender);
                     }
                     
                 }
