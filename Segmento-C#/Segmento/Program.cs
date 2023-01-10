@@ -110,7 +110,7 @@ namespace Segmento
         {
             Console.WriteLine("Enviando mensajes");
             //byte[] msg = Encoding.ASCII.GetBytes(mensaje + "<EOF>");
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje + "\n");
             int byteSent = sender.Send(msg);
         }
         static void EnviarReplica(Socket replica, string mensaje)
@@ -125,8 +125,8 @@ namespace Segmento
                 {
                     if (partesOperación[0] == "B")
                     {
-                        int min = int.Parse(partesOperación[0]);
-                        int max = int.Parse(partesOperación[1]);
+                        int min = int.Parse(partesOperación[1]);
+                        int max = int.Parse(partesOperación[2]);
                         limite[0] = min;
                         limite[1] = max;
                         
@@ -204,8 +204,8 @@ namespace Segmento
             {
                 if (partesOperación[0] == "B")
                 {
-                    int min = int.Parse(partesOperación[0]);
-                    int max = int.Parse(partesOperación[1]);
+                    int min = int.Parse(partesOperación[1]);
+                    int max = int.Parse(partesOperación[2]);
                     limite[0] = min;
                     limite[1] = max;
 
@@ -225,7 +225,7 @@ namespace Segmento
                 }
                 else if (partesOperación[0] == "A")
                 {
-                    string[] partesActualizar = partesOperación[2].Split(";");
+                    string[] partesActualizar = partesOperación[1].Split(";");
                     float monto = float.Parse(partesActualizar[2]);
                     string ordenante = partesActualizar[0];
                     string beneficiario = partesActualizar[1];

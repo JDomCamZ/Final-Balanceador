@@ -67,4 +67,5 @@ for i in range(100000):
         lectura()
     else:
         actualizar()
-    time.sleep(1/10)
+    #time.sleep(1/10)
+    time.sleep(10)
