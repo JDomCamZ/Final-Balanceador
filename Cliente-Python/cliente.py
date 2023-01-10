@@ -68,4 +68,4 @@ for i in range(100000):
     else:
         actualizar()
     #time.sleep(1/10)
-    time.sleep(10)
+    time.sleep(5)
