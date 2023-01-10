@@ -14,9 +14,6 @@ namespace Replica
         static Queue<string> pedidosRe = new Queue<string>();
         static void Main(string[] args)
         {   
-
-
-            
             //datos necesario
             List<string[]> bd = new List<string[]>();
             //para iniciar la conexión
@@ -56,7 +53,7 @@ namespace Replica
         {
             Console.WriteLine("Enviando mensajes");
             Console.WriteLine("Enviando");
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje + "<EOF>");//como tiene el <EOF> entonces el servidor terminra´
+            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
             int byteSent = sender.Send(msg);
         }
 
