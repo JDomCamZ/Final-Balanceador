@@ -5,16 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Identifying clients.">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente-Python/cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente-Python/cliente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/.vs/Segmento/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/.vs/Segmento/v16/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/bin/Debug/netcoreapp3.1/Segmento.runtimeconfig.dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/Segmento.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Debug/netcoreapp3.1/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Segmento.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Segmento.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Segmento.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/Segmento.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Segmento-C#/Segmento/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,26 +53,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Programas/Concurrentes/Final-Balanceador&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "E:/ReposGitHub/Final-Balanceador",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programas\Concurrentes\Final-Balanceador\Balanceador-Java\src\main\java" />
@@ -73,7 +84,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Segment3">
+  <component name="RunManager" selected="Application.Balanceador">
     <configuration name="Balanceador" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Balanceador" />
       <module name="Final-Balanceador" />

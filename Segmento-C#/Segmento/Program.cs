@@ -7,15 +7,13 @@ using System.IO;
 using System.Collections.Generic;
 namespace Segmento
 {
-    
     class Program
     {
         static int[] limite = { 1, 10 };
         static Queue<string> pedidos= new Queue<string>();
         static void Main(string[] args)
 
-        {   
-            
+        { 
             //datos necesario
             List<string[]> bd = new List<string[]>();
             //para iniciar la conexión
@@ -53,16 +51,23 @@ namespace Segmento
                     byte[] bytes = new byte[1024];
                     int byteRec = sender.Receive(bytes);
                     string texto = Encoding.ASCII.GetString(bytes, 0, byteRec);
-                    Console.WriteLine("Servidor:" + texto);
+                   // string visible = texto.Replace("\r\n", "");
+                    string visible = "";
+                    for(int i =0; i < texto.Length - 2; i++)
+                    {
+                        visible += texto[i].ToString();
+                    }
+                    Console.WriteLine("mensaje Servidor:" + visible);
                     //Operaciones(texto,bd,sender,senderReplica);
-                    string visible = texto.Replace("\r\n","");
+                    Console.WriteLine(limite[0] + " >-< " + limite[1]);
                     if (visible == "Is Segment or Client?")
                     {
-                        
+                        Console.WriteLine("CONFIRMAR SI ES SEGMENTO");
                         EnviarMensaje(sender, "Segment");
 
                     }
                     else {
+                        Console.WriteLine("VA A REALIZAR ");/////
                         Op(visible, bd, sender);
                     }
                     
@@ -113,13 +118,7 @@ namespace Segmento
             byte[] msg = Encoding.ASCII.GetBytes(mensaje + "\n");
             int byteSent = sender.Send(msg);
         }
-        static void EnviarReplica(Socket replica, string mensaje)
-        {
-            Console.WriteLine("Enviando replica");
-            byte[] msg = Encoding.ASCII.GetBytes(mensaje);
-            int byteSent = replica.Send(msg);
-        }
-        static void Operaciones(string texto, List<string[]>datos,Socket sender,Socket repli) {
+        /*static void Operaciones(string texto, List<string[]>datos,Socket sender,Socket repli) {
                 string[] partesOperación = texto.Split("-");
                 if (partesOperación.Length > 1)
                 {
@@ -195,36 +194,49 @@ namespace Segmento
 
                 }
   
-        }
+        }*/
 
         static void Op(string texto, List<string[]> datos, Socket sender)
         {
+            Console.WriteLine("EMPEIZA A BUSCAR LA OPERACIÓN");
             string[] partesOperación = texto.Split("-");
             if (partesOperación.Length > 1)
             {
+                Console.WriteLine("Hay mensaje que será revisaso");
                 if (partesOperación[0] == "B")
                 {
                     int min = int.Parse(partesOperación[1]);
                     int max = int.Parse(partesOperación[2]);
                     limite[0] = min;
                     limite[1] = max;
-
+                    Console.WriteLine(limite[0]+" >-< "+limite[1]);
+                    Console.WriteLine("Se balanceó correctamente");
                     //EnviarMensaje(repli, texto);
                 }
                 if (partesOperación[0] == "L")
                 {
+                    Console.WriteLine("Empieza lectura");
                     string dinero = "";
                     string resultado = "";
                     string busca = partesOperación[1];
                     foreach (string[] dato in datos)
                     {
-                        if (dato[0] == busca) dinero = dato[1];
+                        Console.WriteLine(dato[0]);
+                        Console.WriteLine(busca);
+                        if (dato[0] == busca) {
+                            Console.WriteLine("!!!!!!ENCONTRÓ");
+                            dinero = dato[1];
+                            resultado = "S--L-" + busca + "-" + dinero + "-" + partesOperación[2];
+                            EnviarMensaje(sender, resultado);
+                            Console.WriteLine("L------------TERMINA LECTURA");
+                        }
+                        
                     }
-                    resultado = "S--L-" + busca + "-" + dinero + partesOperación[2];
-                    EnviarMensaje(sender, resultado);
+                    
                 }
                 else if (partesOperación[0] == "A")
                 {
+                    Console.WriteLine("Empieza actualización ORDENANTE");
                     string[] partesActualizar = partesOperación[1].Split(";");
                     float monto = float.Parse(partesActualizar[2]);
                     string ordenante = partesActualizar[0];
@@ -240,12 +252,14 @@ namespace Segmento
                                 string resultado = "S--A-D-" + ordenante + "-" + partesOperación[2];
                                 Console.WriteLine(resultado);
                                 EnviarMensaje(sender, resultado);
+                                Console.WriteLine("ACTUALIZACIÓN DENEGADA ORDENANTE");
                             }
                             else
                             {
                                 string resultado = "S--A-A-" + ordenante + "-" + resultadoDinero.ToString() + "-" + beneficiario + "-" + partesActualizar[2] + "-" + partesOperación[2];
                                 Console.WriteLine(resultado);
                                 EnviarMensaje(sender, resultado);
+                                Console.WriteLine("ACTUALIZACIÓN APROBADA ORDENANTE");
                             }
                         }
                     }
@@ -253,6 +267,7 @@ namespace Segmento
                 }
                 else if (partesOperación[0] == "R")
                 {
+                    Console.WriteLine("EMPIEZA A ACTUALZIAR BENEFICIARIO");
                     string[] Actualizar = partesOperación[1].Split(";");
                     string beneficiario = Actualizar[0];
                     float dineroDepositado = float.Parse(Actualizar[1]);
@@ -261,6 +276,7 @@ namespace Segmento
                     {
                         if (dato[0] == beneficiario)
                         {
+                            Console.WriteLine("Encontró beneficiario");
                             float dinero = float.Parse(dato[1]);
                             float dineroActualizado = dinero + dineroDepositado;
 
@@ -273,6 +289,7 @@ namespace Segmento
                             //enviar a replica
 
                             //EnviarMensaje(repli, texto);
+                            Console.WriteLine("FIN DE ACTUALIZACIÓN BENEFICIARIO");
                         }
                     }
 
@@ -300,11 +317,9 @@ namespace Segmento
 
                     // Muestra los valores
                     if (cont >= limite[0] && cont <= limite[1]) {
-                        Console.WriteLine("Valores: " + valores[0] + ", " + valores[1]);
+                        //Console.WriteLine("Valores: " + valores[0] + ", " + valores[1]);
                         lista.Add(new string[] { valores[0], valores[1] });
                     }
-                    
-                    if (cont == limite[1]) break;
                     cont++;
                 }
             }
