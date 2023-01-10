@@ -209,7 +209,7 @@ namespace Segmento
                     int max = int.Parse(partesOperación[2]);
                     limite[0] = min;
                     limite[1] = max;
-                    LeerCSV(datos);
+                    LeerCSV(datos,min,max);
                     Console.WriteLine(limite[0]+" >-< "+limite[1]);
                     Console.WriteLine("Se balanceó correctamente");
                     //EnviarMensaje(repli, texto);
@@ -225,11 +225,12 @@ namespace Segmento
                         Console.WriteLine(dato[0]);
                         Console.WriteLine(busca);
                         if (dato[0] == busca) {
-                            Console.WriteLine("!!!!!!ENCONTRÓ");
+                            Console.WriteLine("!!!!!!ENCONTRÓ en posicion" + dato[0]);
                             dinero = dato[1];
                             resultado = "S--L-" + busca + "-" + dinero + "-" + partesOperación[2];
                             EnviarMensaje(sender, resultado);
                             Console.WriteLine("L------------TERMINA LECTURA");
+                            break; 
                         }
                         
                     }
@@ -244,8 +245,10 @@ namespace Segmento
                     string beneficiario = partesActualizar[1];
                     foreach (string[] dato in datos)
                     {
+                        Console.WriteLine("ENTRA AL FOR DE ACTUALIZACIÓN A");
                         if (dato[0] == ordenante)
                         {
+                            Console.WriteLine("Encuentra la actualización en "+dato[0]);
                             float dineroActual = float.Parse(dato[1]);
                             float resultadoDinero = (dineroActual - monto);
                             if (resultadoDinero < 1000)
@@ -262,6 +265,7 @@ namespace Segmento
                                 EnviarMensaje(sender, resultado);
                                 Console.WriteLine("ACTUALIZACIÓN APROBADA ORDENANTE");
                             }
+                            break;
                         }
                     }
 
@@ -277,7 +281,7 @@ namespace Segmento
                     {
                         if (dato[0] == beneficiario)
                         {
-                            Console.WriteLine("Encontró beneficiario");
+                            Console.WriteLine("Encontró beneficiario ");
                             float dinero = float.Parse(dato[1]);
                             float dineroActualizado = dinero + dineroDepositado;
 
@@ -291,6 +295,7 @@ namespace Segmento
 
                             //EnviarMensaje(repli, texto);
                             Console.WriteLine("FIN DE ACTUALIZACIÓN BENEFICIARIO");
+                            break;
                         }
                     }
 
@@ -301,9 +306,8 @@ namespace Segmento
 
         }
 
-        static void LeerCSV(List<string[]>lista)
+        static void LeerCSV(List<string[]>lista,int mi,int ma)
         {
-            lista = new List<string[]>();
             // Abre el archivo CSV
             using (StreamReader reader = new StreamReader("bd.csv"))
             {
