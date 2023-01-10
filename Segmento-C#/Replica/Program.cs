@@ -13,7 +13,11 @@ namespace Replica
         static int[] limiteRe = { 1, 10 };
         static Queue<string> pedidosRe = new Queue<string>();
         static void Main(string[] args)
-        {   //datos necesario
+        {   
+
+
+            
+            //datos necesario
             List<string[]> bd = new List<string[]>();
             //para iniciar la conexión
 
@@ -66,6 +70,7 @@ namespace Replica
                         int max = int.Parse(partesOperación[1]);
                         limiteRe[0] = min;
                         limiteRe[1] = max;
+                        Console.WriteLine("Limite desde <"+limiteRe[0]+" "+limiteRe[1]);
                     }else if (partesOperación[0] == "R"){
                             string beneficiario =  partesOperación[1];
                             string dinero = partesOperación[2];
