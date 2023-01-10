@@ -287,7 +287,7 @@ namespace Segmento
 
                             dato[1] = dineroActualizado.ToString();
                             Escribir(dato[0] + ";" + dato[1], int.Parse(dato[0]));
-
+                            Console.WriteLine("TERMINÓ DE ESCRIBIR EN EL CSV");
                             string resultado = "S--R-" + beneficiario + "-" + (dineroActualizado.ToString()) + "-" + partesOperación[2];
                             Console.WriteLine(resultado);
                             EnviarMensaje(sender, resultado);
@@ -326,6 +326,7 @@ namespace Segmento
                     }
                     cont++;
                 }
+                reader.Close();
             }
         }
 
@@ -347,6 +348,10 @@ namespace Segmento
                         if (count == fila)
                         {
                             line = s;
+                            writer.WriteLine(line);
+                            writer.Close();
+                            reader.Close();
+                            break;
                         }
 
                         // Escribe la línea en el archivo CSV
