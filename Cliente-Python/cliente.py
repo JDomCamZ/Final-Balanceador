@@ -5,7 +5,7 @@ import time
 import random
 import numpy as np
 
-ip = '192.168.0.12'
+ip ='192.168.0.18' #'192.168.0.12'
 port = 4444
 id_cliente = 1
 mi_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -68,4 +68,4 @@ for i in range(100000):
     else:
         actualizar()
     #time.sleep(1/10)
-    time.sleep(10)
+    time.sleep(100)
