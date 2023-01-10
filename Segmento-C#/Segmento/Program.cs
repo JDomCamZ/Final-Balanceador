@@ -299,7 +299,7 @@ namespace Segmento
                     // Mueve el puntero al principio de la fila que deseas sobrescribir
                     stream.Seek((fila) * (valoresFila.Length + 2), SeekOrigin.Begin);
 
-                    // Sobrescribe la fila
+                    // Sobrescribe la fila///////////
                     writer.Write(valoresFila);
                 }
             }
