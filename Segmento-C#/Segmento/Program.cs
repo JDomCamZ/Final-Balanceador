@@ -300,7 +300,7 @@ namespace Segmento
                 using (var writer = new StreamWriter(stream))
                 {
                     // Mueve el puntero al principio de la fila que deseas sobrescribir
-                    stream.Seek((fila-1) * (valoresFila.Length + 2), SeekOrigin.Begin);
+                    stream.Seek((fila) * (valoresFila.Length + 2), SeekOrigin.Begin);
 
                     // Sobrescribe la fila///////////
                     writer.Write(valoresFila);
