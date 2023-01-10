@@ -1,8 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,7 +37,12 @@ public class Balanceador {
                 if (cont > 0) {
                     String[] fields = line.split(delimiter);
                     for (int col = 0; col < 2; col++) {
-                        data[row][col] = Integer.parseInt(fields[col]);
+                        if (col == 0) {
+                            data[row][col] = Integer.parseInt(fields[col]);
+                        }
+                        if (col == 1) {
+                            data[row][col] = (int) Float.parseFloat(fields[col]);
+                        }
                     }
                     row++;
                 }
