@@ -118,83 +118,6 @@ namespace Segmento
             byte[] msg = Encoding.ASCII.GetBytes(mensaje + "\n");
             int byteSent = sender.Send(msg);
         }
-        /*static void Operaciones(string texto, List<string[]>datos,Socket sender,Socket repli) {
-                string[] partesOperación = texto.Split("-");
-                if (partesOperación.Length > 1)
-                {
-                    if (partesOperación[0] == "B")
-                    {
-                        int min = int.Parse(partesOperación[1]);
-                        int max = int.Parse(partesOperación[2]);
-                        limite[0] = min;
-                        limite[1] = max;
-                        
-                        //EnviarMensaje(repli, texto);
-                    }
-                    if (partesOperación[0] == "L"){
-                            string dinero = "";
-                            string resultado = "";
-                            string busca = partesOperación[1];
-                            foreach (string[] dato in datos)
-                            {
-                                if (dato[0] == busca) dinero = dato[1];
-                            }
-                            resultado = "S--L-" + busca + "-" + dinero + partesOperación[2];
-                            EnviarMensaje(sender, resultado);
-                    }else if (partesOperación[0] == "A"){
-                            string[] partesActualizar = partesOperación[2].Split(";");
-                            float monto = float.Parse(partesActualizar[2]);
-                            string ordenante = partesActualizar[0];
-                            string beneficiario= partesActualizar[1];
-                            foreach (string[] dato in datos)
-                            {
-                                if (dato[0] == ordenante)
-                                {
-                                    float dineroActual = float.Parse(dato[1]);
-                                    float resultadoDinero = (dineroActual - monto);
-                                    if (resultadoDinero < 1000)
-                                    {
-                                        string resultado = "S--A-D-" + ordenante + "-"+ partesOperación[2];
-                                        Console.WriteLine(resultado);
-                                        EnviarMensaje(sender, resultado);
-                                    }
-                                    else
-                                    {
-                                        string resultado = "S--A-A-" + ordenante + "-" +resultadoDinero.ToString() + "-" +beneficiario+"-"+partesActualizar[2] + "-" + partesOperación[2];
-                                        Console.WriteLine(resultado);
-                                        EnviarMensaje(sender, resultado);
-                                    }
-                                }
-                            }
-
-                    }else if (partesOperación[0] == "R"){
-                            string[] Actualizar = partesOperación[1].Split(";");
-                            string beneficiario = Actualizar[0];
-                            float dineroDepositado = float.Parse(Actualizar[1]);
-
-                         foreach (string[] dato in datos){
-                           if (dato[0] ==beneficiario) {
-                            float dinero = float.Parse(dato[1]);
-                            float dineroActualizado = dinero + dineroDepositado;
-
-                            dato[1] = dineroActualizado.ToString();
-                            Escribir(dato[0] + ";" + dato[1], int.Parse(dato[0]));
-
-                            string resultado = "S--R-" + beneficiario + "-"+(dineroActualizado.ToString())+"-" + partesOperación[2];
-                            Console.WriteLine(resultado);
-                            EnviarMensaje(sender, resultado);
-                            //enviar a replica
-                            
-                            //EnviarMensaje(repli, texto);
-                        }
-                          }
-                        
-
-                    }
-
-                }
-  
-        }*/
 
         static void Op(string texto, List<string[]> datos, Socket sender)
         {
@@ -245,10 +168,10 @@ namespace Segmento
                     string beneficiario = partesActualizar[1];
                     foreach (string[] dato in datos)
                     {
-                        Console.WriteLine("ENTRA AL FOR DE ACTUALIZACIÓN A");
+                        //Console.WriteLine("ENTRA AL FOR DE ACTUALIZACIÓN A");
                         if (dato[0] == ordenante)
                         {
-                            Console.WriteLine("Encuentra la actualización en "+dato[0]);
+                            //Console.WriteLine("Encuentra la actualización en "+dato[0]);
                             float dineroActual = float.Parse(dato[1]);
                             float resultadoDinero = (dineroActual - monto);
                             if (resultadoDinero < 1000)
@@ -272,7 +195,7 @@ namespace Segmento
                 }
                 else if (partesOperación[0] == "R")
                 {
-                    Console.WriteLine("EMPIEZA A ACTUALZIAR BENEFICIARIO");
+                    //Console.WriteLine("EMPIEZA A ACTUALZIAR BENEFICIARIO");
                     string[] Actualizar = partesOperación[1].Split(";");
                     string beneficiario = Actualizar[0];
                     float dineroDepositado = float.Parse(Actualizar[1]);
@@ -281,7 +204,7 @@ namespace Segmento
                     {
                         if (dato[0] == beneficiario)
                         {
-                            Console.WriteLine("Encontró beneficiario ");
+                            //Console.WriteLine("Encontró beneficiario ");
                             float dinero = float.Parse(dato[1]);
                             float dineroActualizado = dinero + dineroDepositado;
 
@@ -331,38 +254,31 @@ namespace Segmento
         }
 
         static void Escribir(string s,int fila) {
-
+            /*
             // Abre el archivo CSV en modo lectura
             string valoresFila = s;
-
             // Lista temporal para almacenar las líneas del archivo CSV
             var lineas = new List<string>();
-
             // Abre el archivo CSV en modo lectura
             using (var reader = new StreamReader("bd.csv"))
             {
                 // Recorre cada línea del archivo CSV
-                while (true)
-                {
+                while (true){   
                     string linea = reader.ReadLine();
-
                     if (linea == null)
                     {
                         // Fin del archivo CSV
                         break;
                     }
-
                     // Si es la fila que deseas sobrescribir, escribe los valores modificados
                     if (lineas.Count == fila)
                     {
                         linea = valoresFila;
                     }
-
                     // Añade la línea a la lista temporal
                     lineas.Add(linea);
                 }
             }
-
             // Abre el archivo CSV en modo escritura
             using (var writer = new StreamWriter("bd.csv"))
             {
@@ -370,6 +286,21 @@ namespace Segmento
                 foreach (string linea in lineas)
                 {
                     writer.WriteLine(linea);
+                }
+            }*/
+            // Cadena con los valores de la fila
+            string valoresFila =s;
+
+            // Abre el archivo CSV en modo lectura y escritura
+            using (var stream = new FileStream("bd.csv", FileMode.Open, FileAccess.ReadWrite))
+            {
+                using (var writer = new StreamWriter(stream))
+                {
+                    // Mueve el puntero al principio de la fila que deseas sobrescribir
+                    stream.Seek((fila) * (valoresFila.Length + 2), SeekOrigin.Begin);
+
+                    // Sobrescribe la fila
+                    writer.Write(valoresFila);
                 }
             }
 
