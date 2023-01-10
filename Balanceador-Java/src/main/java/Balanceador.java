@@ -22,13 +22,8 @@ public class Balanceador {
         file = new File(file, "bin");
         file = new File(file, "Debug");
         file = new File(file, "netcoreapp3.1");
-<<<<<<< HEAD
         file = new File(file, "bd.csv");
         /*File file = new File("Balanceador-Java", "src");
-=======
-        file = new File(file, "bd.csv");*/
-        File file = new File("src");
->>>>>>> dd977eb67373167e637cdf5400ca9485ecf5443e
         file = new File(file, "main");
         file = new File(file, "resources");
         file = new File(file, "bd.csv");*/
