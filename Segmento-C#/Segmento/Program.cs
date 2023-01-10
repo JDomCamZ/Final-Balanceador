@@ -28,7 +28,7 @@ namespace Segmento
             //senderReplica.Connect(remoteReplica);
             
 
-            LeerCSV(bd);
+            //LeerCSV(bd);
             try
             {
                 // Crea un socket TCP/IP.
@@ -204,11 +204,12 @@ namespace Segmento
             {
                 Console.WriteLine("Hay mensaje que será revisaso");
                 if (partesOperación[0] == "B")
-                {
+                {   
                     int min = int.Parse(partesOperación[1]);
                     int max = int.Parse(partesOperación[2]);
                     limite[0] = min;
                     limite[1] = max;
+                    LeerCSV(datos);
                     Console.WriteLine(limite[0]+" >-< "+limite[1]);
                     Console.WriteLine("Se balanceó correctamente");
                     //EnviarMensaje(repli, texto);
@@ -302,6 +303,7 @@ namespace Segmento
 
         static void LeerCSV(List<string[]>lista)
         {
+            lista = new List<string[]>();
             // Abre el archivo CSV
             using (StreamReader reader = new StreamReader("bd.csv"))
             {
