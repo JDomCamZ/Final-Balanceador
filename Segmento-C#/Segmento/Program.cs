@@ -27,8 +27,6 @@ namespace Segmento
             //Socket senderReplica = new Socket(ipReplica.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             //senderReplica.Connect(remoteReplica);
             
-
-            //LeerCSV(bd);
             try
             {
                 // Crea un socket TCP/IP.
@@ -79,36 +77,6 @@ namespace Segmento
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            }
-        }
-
-        /*static void Recivir(Object sender)
-        {
-            Socket s=(Socket)sender;
-            Console.WriteLine("Reciviendo mensaje");
-
-            // Aquí puedes poner el código que quieras ejecutar en el hilo
-            while (true) {
-                byte[] bytes = new byte[1024];
-                int byteRec = s.Receive(bytes);
-                string texto = Encoding.ASCII.GetString(bytes, 0, byteRec);
-                Console.WriteLine("Servidor:" + texto);
-
-            }
-        }*/
-        static void Enviar(Object sender) {
-            Socket s = (Socket)sender;
-            Console.WriteLine("Enviando mensajes");
-            string comando = "";
-            while (comando != "exit")
-            {
-                Console.WriteLine("ingrese una cadena");
-
-                //enviando mensaje
-                comando = Console.ReadLine();
-                byte[] msg = Encoding.ASCII.GetBytes(comando + "<EOF>");//como tiene el <EOF> entonces el servidor terminra´
-                int byteSent = s.Send(msg);
-
             }
         }
         static void EnviarMensaje(Socket sender,string mensaje)
@@ -257,6 +225,27 @@ namespace Segmento
 
             try
             {
+            // Cadena con los valores de la fila
+            string valoresFila =s;
+
+            // Abre el archivo CSV en modo lectura y escritura
+            using (var stream = new FileStream("bd.csv", FileMode.Open, FileAccess.ReadWrite))
+            {
+                using (var writer = new StreamWriter(stream))
+                {
+                    // Mueve el puntero al principio de la fila que deseas sobrescribir
+                    stream.Seek((fila) * (valoresFila.Length + 2), SeekOrigin.Begin);
+
+                    // Sobrescribe la fila///////////
+                    writer.Write(valoresFila);
+                }
+            }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.ToString());
+            }
             /*
             // Abre el archivo CSV en modo lectura
             string valoresFila = s;
@@ -291,27 +280,6 @@ namespace Segmento
                     writer.WriteLine(linea);
                 }
             }*/
-            // Cadena con los valores de la fila
-            string valoresFila =s;
-
-            // Abre el archivo CSV en modo lectura y escritura
-            using (var stream = new FileStream("bd.csv", FileMode.Open, FileAccess.ReadWrite))
-            {
-                using (var writer = new StreamWriter(stream))
-                {
-                    // Mueve el puntero al principio de la fila que deseas sobrescribir
-                    stream.Seek((fila) * (valoresFila.Length + 2), SeekOrigin.Begin);
-
-                    // Sobrescribe la fila///////////
-                    writer.Write(valoresFila);
-                }
-            }
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.ToString());
-            }
 
         }
 
