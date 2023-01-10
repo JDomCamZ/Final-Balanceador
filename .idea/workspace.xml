@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8e0277-eb0d-4464-b7d5-d64c3572abf5" name="Changes" comment="Identifying clients.">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/src/main/java/Balanceador.java" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Balanceador-Java/.idea/workspace.xml" afterDir="false" />
+>>>>>>> dd977eb67373167e637cdf5400ca9485ecf5443e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
