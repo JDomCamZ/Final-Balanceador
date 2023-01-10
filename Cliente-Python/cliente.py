@@ -5,7 +5,7 @@ import time
 import random
 import numpy as np
 
-ip ='192.168.0.18' #'192.168.0.12'
+ip ='192.168.0.12' #'192.168.0.12'
 port = 4444
 id_cliente = 1
 mi_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
